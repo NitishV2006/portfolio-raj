@@ -48,6 +48,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'HOME', href: '#home' },
+    { name: 'ABOUT', href: '#about' },
     { name: 'SKILLS', href: '#skills' },
     { name: 'PROJECTS', href: '#projects' },
     { name: 'CONTACT', href: '#contact' },
@@ -364,6 +365,46 @@ const Portfolio = () => {
           </div>
         </section>
 
+
+        {/* About Section */}
+        <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
+          <SectionHeading title="ABOUT" subtitle="Technical background and core focus areas." />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <BentoCard className="lg:col-span-2" title="Profile">
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="w-full md:w-48 aspect-square border border-white/10 overflow-hidden">
+                  <DitherShader
+                    src="/src/images/profile.png"
+                    gridSize={1}
+                    ditherMode="bayer"
+                    colorMode="original"
+                    invert={false}
+                    animated={false}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1 space-y-4">
+                  <p className="text-xl font-mono text-white/80 leading-tight uppercase">
+                    Computer Science undergraduate focused on <span className="text-nothing-red">Artificial Intelligence</span> and scalable systems.
+                  </p>
+                  <p className="text-white/40 font-mono text-sm leading-relaxed uppercase">
+                    Bridging complex AI research with practical applications. Solving real-world problems through data-driven insights and robust engineering.
+                  </p>
+                </div>
+              </div>
+            </BentoCard>
+
+            <BentoCard title="Focus" icon={BrainCircuit}>
+              <ul className="space-y-3 font-mono text-xs uppercase tracking-widest text-white/60">
+                <li className="flex items-center gap-2"><div className="w-1 h-1 bg-nothing-red" /> Machine Learning</li>
+                <li className="flex items-center gap-2"><div className="w-1 h-1 bg-nothing-red" /> Computer Vision</li>
+                <li className="flex items-center gap-2"><div className="w-1 h-1 bg-nothing-red" /> Backend Systems</li>
+                <li className="flex items-center gap-2"><div className="w-1 h-1 bg-nothing-red" /> API Development</li>
+              </ul>
+            </BentoCard>
+          </div>
+        </section>
 
         {/* Skills Section */}
         <section id="skills" className="py-24 px-6 max-w-7xl mx-auto">
