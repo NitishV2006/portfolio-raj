@@ -375,7 +375,7 @@ const Portfolio = () => {
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="w-full md:w-48 aspect-square border border-white/10 overflow-hidden">
                   <DitherShader
-                    src="/src/images/profile.png"
+                    src="/profile.png"
                     gridSize={1}
                     ditherMode="bayer"
                     colorMode="original"
