@@ -33,6 +33,7 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { DitherShader } from "@/components/ui/dither-shader";
 import { supabase } from '@/lib/supabase';
 import AcademicMonitorWIP from '@/components/academic-monitor-wip';
+import profileImg from './images/profile.png';
 
 // --- Components ---
 
@@ -375,7 +376,7 @@ const Portfolio = () => {
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="w-full md:w-48 aspect-square border border-white/10 overflow-hidden">
                   <DitherShader
-                    src="/profile.png"
+                    src={profileImg}
                     gridSize={1}
                     ditherMode="bayer"
                     colorMode="original"

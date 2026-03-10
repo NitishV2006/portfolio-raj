@@ -249,7 +249,7 @@ export const DitherShader: React.FC<DitherShaderProps> = ({
                   luminance + (ditherThreshold - 0.5) * 0.5;
                 const paletteIndex = Math.floor(
                   clamp(adjustedLuminance, 0, 1) *
-                    (parsedCustomPalette.length - 1),
+                  (parsedCustomPalette.length - 1),
                 );
                 outputColor = parsedCustomPalette[paletteIndex];
               }
@@ -422,14 +422,12 @@ export const DitherShader: React.FC<DitherShaderProps> = ({
     } else {
       // Load the image
       const img = new Image();
-      img.crossOrigin = "anonymous";
-      img.src = src;
-
       img.onload = () => {
         if (isCancelled) return;
         imageRef.current = img;
         processImage(img);
       };
+      img.src = src;
 
       img.onerror = () => {
         console.error("Failed to load image for DitherShader:", src);
