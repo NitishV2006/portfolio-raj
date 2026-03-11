@@ -27,7 +27,13 @@ import {
   ArrowUpRight,
   Plus,
   Loader2,
-  CheckCircle2
+  CheckCircle2,
+  Briefcase,
+  Trophy,
+  BadgeCheck,
+  Calendar,
+  Medal,
+  Award as AwardIcon
 } from 'lucide-react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { DitherShader } from "@/components/ui/dither-shader";
@@ -52,6 +58,9 @@ const Navbar = () => {
     { name: 'ABOUT', href: '#about' },
     { name: 'SKILLS', href: '#skills' },
     { name: 'PROJECTS', href: '#projects' },
+    { name: 'EXPERIENCE', href: '#experience' },
+    { name: 'CERTIFICATIONS', href: '#certifications' },
+    { name: 'ACHIEVEMENTS', href: '#achievements' },
     { name: 'CONTACT', href: '#contact' },
   ];
 
@@ -516,6 +525,145 @@ const Portfolio = () => {
                     )}
                   </div>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="py-24 px-6 max-w-7xl mx-auto">
+          <SectionHeading title="EXPERIENCE" subtitle="Professional journey and industry roles." />
+
+          <div className="relative border-l border-white/10 ml-4 space-y-12">
+            {[
+              {
+                role: "AI & Machine Learning Intern",
+                company: "GDG (EduSkill AP)",
+                duration: "Apr 2025 – Jun 2025",
+                points: [
+                  "Built an end-to-end object classification pipeline from data preparation to model evaluation.",
+                  "Implemented feature extraction using OpenCV and trained machine learning models using SVM.",
+                  "Improved model accuracy through iterative experimentation on real-world datasets.",
+                  "Worked on computer vision workflows and machine learning optimization techniques."
+                ]
+              },
+              {
+                role: "AI & Prompt Engineering Intern",
+                company: "VaultofCodes",
+                duration: "Jun 2025 – Jul 2025",
+                points: [
+                  "Researched and implemented advanced prompt engineering techniques for large language models.",
+                  "Improved response accuracy and task alignment using structured prompt design.",
+                  "Analyzed prompt behavior and documented performance trade-offs for optimization.",
+                  "Contributed to AI feature experimentation and evaluation pipelines."
+                ]
+              }
+            ].map((exp, i) => (
+              <motion.div
+                key={i}
+                className="relative pl-12"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <div className="absolute left-[-5px] top-2 w-[9px] h-[9px] bg-nothing-red" />
+                <div className="nothing-card">
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                    <div>
+                      <h3 className="text-2xl font-mono font-bold tracking-tighter uppercase">{exp.role}</h3>
+                      <p className="text-nothing-red font-mono text-sm font-bold uppercase tracking-widest">{exp.company}</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-white/40 font-mono text-[10px] uppercase tracking-[0.2em] border border-white/10 px-3 py-1">
+                      <Calendar size={12} />
+                      {exp.duration}
+                    </div>
+                  </div>
+                  <ul className="space-y-3 font-mono text-xs uppercase tracking-tight text-white/60 leading-relaxed">
+                    {exp.points.map((point, j) => (
+                      <li key={j} className="flex gap-4">
+                        <span className="text-nothing-red shrink-0">•</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Certifications Section */}
+        <section id="certifications" className="py-24 px-6 max-w-7xl mx-auto">
+          <SectionHeading title="CERTIFICATIONS" subtitle="Validated technical credentials and expertise." />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { name: "Database Management Systems", issuer: "NPTEL", icon: Database },
+              { name: "Data Analysis", issuer: "Microsoft", icon: FileCheck },
+              { name: "Developing Solutions for Microsoft Azure (AZ-204T00)", issuer: "Microsoft", icon: Globe },
+              { name: "Python Programming", issuer: "Cisco", icon: Code2 },
+              { name: "Power BI for Data Analysis", issuer: "Office Master", icon: Layers },
+              { name: "AI Agent Architect Challenge", issuer: "Lyzr AI", icon: BrainCircuit }
+            ].map((cert, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+              >
+                <div className="nothing-card h-full group">
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="p-2 border border-white/10 group-hover:border-nothing-red transition-colors">
+                      <cert.icon size={20} className="text-nothing-red" />
+                    </div>
+                    <BadgeCheck size={18} className="text-white/20 group-hover:text-nothing-red/50 transition-colors" />
+                  </div>
+                  <h3 className="font-mono font-bold text-sm uppercase tracking-tight mb-2 leading-tight group-hover:text-nothing-red transition-colors">{cert.name}</h3>
+                  <p className="font-mono text-[10px] text-white/40 uppercase tracking-widest">{cert.issuer}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Achievements Section */}
+        <section id="achievements" className="py-24 px-6 max-w-7xl mx-auto">
+          <SectionHeading title="ACHIEVEMENTS" subtitle="Recognition and milestones in tech and leadership." />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Rank 61 — NEC 2025 (Advanced Track)",
+                desc: "Secured Rank 61 among 4000+ teams in NEC 2025 conducted by E-Cell IIT Bombay.",
+                icon: Trophy
+              },
+              {
+                title: "CodeChef 2★ Competitive Programmer",
+                desc: "Solved 400+ competitive programming problems on CodeChef.",
+                icon: Medal
+              },
+              {
+                title: "Web Development Lead — EDCELL VIIT",
+                desc: "Led web development initiatives for the Entrepreneurship Development Cell. Organized hackathons and technical workshops.",
+                icon: AwardIcon
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <BentoCard title="ACHIEVEMENT" icon={item.icon} className="h-full">
+                  <h3 className="text-2xl font-mono font-bold tracking-tighter uppercase mb-4 text-white group-hover:text-nothing-red transition-colors">{item.title}</h3>
+                  <div className="h-px bg-white/10 w-full mb-4" />
+                  <p className="font-mono text-xs uppercase tracking-tight text-white/40 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </BentoCard>
               </motion.div>
             ))}
           </div>
